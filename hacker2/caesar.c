@@ -5,6 +5,11 @@
     int
 main(int argc, char *argv[])
 {
+    // Verifica se o usuario passou os parametros corretamente
+    if (argc != 2){
+	printf("Forne√a uma chave de 1 a 25\n");
+	return 1;
+    }
     int k = atoi(argv[1])%26;
     if (k <= 0){
 	printf("Criptografia Falhou!\nTente novamente com outra chave.\n");
@@ -37,20 +42,20 @@ main(int argc, char *argv[])
 	//tratamento letras maiusculas	
 	if(buffer[i]>=65 && buffer[i]<=90)
 	{
-	    c = (buffer[i]+k)%90;
-	    if (c<65)
-		c+=64;
+	    c = (buffer[i]+k);
+	    if (c > 90)
+		c = (c%90)+64;
 	    printf("%c",c);
 	}else 
 	    //tratamento letras minusculas
 	    if(buffer[i]>=97 && buffer[i]<=122) 
 	    {
-		c = (buffer[i]+k)%122;		
-		if (c<97)
-		    c+=96;
+		c = (buffer[i]+k);	
+		if (c > 122)
+		    c = (c%122)+96;
 		printf("%c",c);
 	    }else
-		printf("%c", buffer[i]);
+		printf("%c", buffer[i]); // printa as n√o letras
     } 
 
     return 0;
