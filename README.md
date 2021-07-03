@@ -1,1 +1,2 @@
-# cc50
+# CC50
+Curso de ciência da computação de Havard.
